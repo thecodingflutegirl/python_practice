@@ -5,24 +5,27 @@ import random
 
 START_GAME = True
 
-def guess_checker(attempts):
-        global START_GAME
-        while attempts >0: # but if the guess is right and theres still attempts..the game should end not keep going? 
-            print(f"You have {attempts} attempts remaining to guess the number")
-            guess = int(input('Make a guess: '))
-            if guess != correct_number:
-                attempts -= 1
-                if guess > correct_number:
-                    print('Too high.\nGuess again.')
-                else: 
-                    print('Too low.\nGuess again.')
-            else: 
-                print(f'You guessed the number! It was {correct_number}')
-                START_GAME = False
 
-            if attempts == 0:
-                print(f'You ran out of attempts! The correct number is {correct_number}')
-                START_GAME = False
+def guess_checker(attempts):
+    global START_GAME
+    #print(f"=====Global flag is {START_GAME} in guess checker")
+    while attempts != 0 and START_GAME:
+        print(f"You have {attempts} attempts remaining to guess the number")
+        guess = int(input('Make a guess: '))
+        if guess != correct_number:
+            attempts -= 1
+            if guess > correct_number:
+                print('Too high.\nGuess again.')
+            else:
+                print('Too low.\nGuess again.')
+        else:
+            print(f'You guessed the number! It was {correct_number}')
+            START_GAME = False
+        if attempts == 0:
+            print(
+                f'You ran out of attempts! The correct number is {correct_number}')
+            START_GAME = False
+
 
 while START_GAME:
 
@@ -36,6 +39,7 @@ while START_GAME:
     if difficulty == 'easy':
         attempts = 10
         guess_checker(attempts)
+        #print(f"----Global flag is {START_GAME} in main easy loop")
 
     elif difficulty == 'hard':
         attempts = 5
