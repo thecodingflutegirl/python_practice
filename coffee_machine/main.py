@@ -1,13 +1,38 @@
-
+from menu_resources import MENU, resources 
+coffee_machine = True
+price = 0 
 # 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):”
 # a. Check the user’s input to decide what to do next.
 # b. The prompt should show every time action has completed, e.g. once the drink is
 # dispensed. The prompt should show again to serve the next customer.
 
+def available_resources(ingredients):
+    for item in ingredients:
+        if ingredients[item] >= resources[item]:
+            print(f'Sorry, there is not enough {"item"}')
+            return False
+    return True
+
+
+while coffee_machine:
+    choice = input('What would you like? (espresso/latte/cappuccino): ')
+### input variables: report, espresso, latte, cappuccino, off 
+
 # 2. Turn off the Coffee Machine by entering “off” to the prompt.
 # a. For maintainers of the coffee machine, they can use “off” as the secret word to turn off
 # the machine. Your code should end execution when this happens.
+    if choice == 'off':
+        coffee_machine = False
+    elif choice == 'report':
+        print(f"Milk: {resources['milk']}ml")
+        print(f"Coffee: {resources['coffee']}g")
+        print(f"Money: ${price}") 
+        print(f"Water: {resources['water']}ml")
+    else: 
+        drink = MENU[choice]
+        #if available_resources(drink['ingredients']):
 
+        
 # 3. Print report.
 # a. When the user enters “report” to the prompt, a report should be generated that shows
 # the current resource values. e.g.
