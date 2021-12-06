@@ -9,6 +9,7 @@ screen = turtle.Screen()
 for _ in range(4):
     tim.right(90)
     tim.forward(100)
+###################################################
 
 # to create a dashed line
 for _ in range(12):
@@ -17,6 +18,7 @@ for _ in range(12):
     tim.forward(10)
     tim.pendown()
 
+##################################################
 # to create triangle, square, pentagon, hexagon, heptagon, octagon, nonagon and decagon each with random color
 # each side is 100
 colors = ['red', 'blue', 'green', 'purple', 'pink',
@@ -34,6 +36,7 @@ for sides in range(3, 11):
     tim.color(random.choice(colors))
     draw(sides)
 
+###############################################
 # generate a random walk
 directions = [0, 90, 180, 270]
 colors = ['red', 'blue', 'green', 'purple', 'pink',
@@ -46,7 +49,7 @@ for _ in range(200):
     tim.forward(30)
     tim.setheading(random.choice(directions))
 
-
+###################################################
 # create random color in turtle
 turtle.colormode(255)
 def random_color():
@@ -58,6 +61,7 @@ def random_color():
 
 tim.color(random_color())
 
+################################################
 # Make a spirograph
 
 tim.speed('fastest')
@@ -70,6 +74,7 @@ def spirograph(gap):
 
 spirograph(5)
 
+##################################################
 # CREATING A MILLION DOLLAR PAINTING
 # --- need to get colors wanted from colorgram below, the list of all the colors is below as color_list
 #import colorgram
@@ -132,6 +137,6 @@ for dot in range( 1, dots +1):
         tim.setheading(0)
 
 
-        
+
 
 screen.exitonclick()
