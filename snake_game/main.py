@@ -44,6 +44,7 @@ game = True
 #     screen.textinput(
 #         'START OVER?', 'Would you like to start again? Press the "C" key and press OK.').lower()
 def snake_game():
+    
     global game
     while game:
         if not paused:
@@ -57,13 +58,17 @@ def snake_game():
                 scoreboard.increase_score()
 
             if snake.head.xcor() > 280 or snake.head.xcor() < -285 or snake.head.ycor() > 280 or snake.head.ycor() < -285:
-                game = False
-                scoreboard.game_over()
+                #game = False
+                # scoreboard.game_over()
+                scoreboard.reset()
+                snake.reset()
 
             for segment in snake.segments[1:]:
                 if snake.head.distance(segment) < 10:
-                    scoreboard.game_over()
-                    game = False
+                    scoreboard.reset()
+                    snake.reset()
+                    #scoreboard.game_over()
+                    #game = False
         else:
             screen.update()
 
