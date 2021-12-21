@@ -1,5 +1,5 @@
 from tkinter import *
-import pandas 
+import pandas
 import random
 
 BACKGROUND_COLOR = "#B1DDC6"
@@ -26,12 +26,14 @@ def next_card():
     flip_timer = window.after(3000, func=flip_card)
 
 # ----------------- FLIP CARD --------------- ##
+
+
 def flip_card():
     global current_card
     canvas.itemconfig(card_title, text='English', fill='white')
     canvas.itemconfig(card_word, text=current_card['English'], fill='white')
     canvas.itemconfig(card_background, image=back_card_image)
-    
+
 
 ## ------------------ KNOWN CARD ---------##
 def is_known():
@@ -51,16 +53,21 @@ wrong = PhotoImage(file='images/wrong.png')
 front_card_image = PhotoImage(file='images/card_front.png')
 back_card_image = PhotoImage(file='images/card_back.png')
 
-canvas = Canvas(width=800, height=526, highlightthickness=0, background=BACKGROUND_COLOR)
+canvas = Canvas(width=800, height=526, highlightthickness=0,
+                background=BACKGROUND_COLOR)
 card_background = canvas.create_image(400, 263, image=front_card_image)
-card_title = canvas.create_text(400, 150, text='', font=('Arial', 40, 'italic'), fill='black')
-card_word = canvas.create_text(400, 263, text='', font=('Arial', 60, 'bold'), fill='black')
+card_title = canvas.create_text(
+    400, 150, text='', font=('Arial', 40, 'italic'), fill='black')
+card_word = canvas.create_text(
+    400, 263, text='', font=('Arial', 60, 'bold'), fill='black')
 canvas.grid(column=0, row=0, columnspan=2)
 
 
-right_btn = Button(image=right, highlightthickness=0, bd=0, highlightbackground=BACKGROUND_COLOR, command=is_known)
+right_btn = Button(image=right, highlightthickness=0, bd=0,
+                   highlightbackground=BACKGROUND_COLOR, command=is_known)
 right_btn.grid(column=0, row=1)
-wrong_btn = Button(image=wrong, highlightthickness=0, bd=0, highlightbackground=BACKGROUND_COLOR, command=next_card)
+wrong_btn = Button(image=wrong, highlightthickness=0, bd=0,
+                   highlightbackground=BACKGROUND_COLOR, command=next_card)
 wrong_btn.grid(column=1, row=1)
 
 
@@ -68,4 +75,3 @@ next_card()
 
 
 window.mainloop()
-
