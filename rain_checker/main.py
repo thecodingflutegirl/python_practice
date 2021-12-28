@@ -8,7 +8,7 @@ lat = '30.438255'
 lon = '-84.280731'
 acc_sid = os.environ.get('ACC_SID')
 auth_token = os.environ.get('AUTH_TOKEN')
-print(auth_token, acc_sid, key)
+
 
 params = {
     'appid': key,
