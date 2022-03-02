@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="box">
+  {% if not current_user.is_authenticated: %}
+	<h1>Flask Authentication</h1>
+  <a href="{{ url_for('login') }}" class="btn btn-primary btn-block btn-large">Login</a>
+  <a href="{{ url_for('register') }}" class="btn btn-secondary btn-block btn-large">Register</a>
+  {% else: %}
+  <h1>Great! You are logged in to view the secret!</h1>
+  <p><a href="{{ url_for('secrets') }}">View Secret</a></p>
+  {% endif %}
+</div>
+
+{% endblock %}
